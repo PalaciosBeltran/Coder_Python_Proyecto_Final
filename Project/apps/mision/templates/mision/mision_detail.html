@@ -1,0 +1,30 @@
+{% extends 'mision/list.html' %}
+
+{% block content_titulo %}
+
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">{{ mision.titulo }}</span></h1>
+    
+{% endblock content_titulo %}
+
+{% block content_mision %}   
+
+    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+        <div class="card-body p-0">
+            <div class="d-flex align-items-center">
+                <div class="p-5">
+                    <a>{{ mision.descripcion }}</a><br>
+                    <br>
+                    <br>
+                    <a class="btn btn-outline-primary btn-sm" href="{% url 'mision:mision_actualizar' mision.id %}">Actualizar</a>
+                    <br>
+                    <br>
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'mision:mision_eliminar' mision.id %}">Eliminar</a>
+                </div>
+                <img class="img-fluid" src={{ mision.imagen }} alt="..." />
+            </div>
+        </div>
+    </div>
+
+        <a class="btn btn-outline-dark btn-sm" href="{% url 'mision:mision_list' %}">Volver</a>
+
+{% endblock content_mision %}

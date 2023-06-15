@@ -1,0 +1,38 @@
+{% extends 'perfil/list.html' %}
+
+{% block content_titulo %}
+
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Categorías</span></h1>
+
+{% endblock content_titulo %}
+
+{% block content_perfil %}
+
+    {% for perfilcategoria in perfilcategoria_list %}
+
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+            <div class="card-body p-0">
+                <div class="d-flex align-items-center">
+                    <div class="p-5">                    
+                        <h2 class="fw-bolder">{{ perfilcategoria.nombre }}</h2>                   
+                        <p>{{ perfilcategoria.descripcion }}</p>
+                        {% if perfilcategoria.nombre == 'Superhéroe' %}
+                            <a class="btn btn-primary btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_list' %}">Ver Perfiles</a>
+                            <h2></h2>
+                            <a class="btn btn-primary btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_registrar' %}">Registrar Héroe</a>
+                        {% else %}
+                            <a class="btn btn-danger btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfilvillano_list' %}">Ver Perfiles</a>
+                            <h2></h2>
+                            <a class="btn btn-danger btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_reportar' %}">Reportar Villano</a>
+                        {% endif %}
+                        </div>
+                    <img class="img-fluid" src={{ perfilcategoria.imagen }} alt="..." />
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+<a class="btn btn-outline-dark btn-sm" href="{% url 'home:home' %}">Volver</a>
+
+{% endblock content_perfil %}

@@ -1,0 +1,34 @@
+{% extends 'mision/list.html' %}
+
+{% block content_titulo %}
+
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Misiones</span></h1>
+    
+{% endblock content_titulo %}
+
+{% block content_mision %}
+
+    {% for mision in mision_list %}
+
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+            <div class="card-body p-0">
+                <div class="d-flex align-items-center">
+                    <div class="p-5">
+                        <h2 class="fw-bolder">{{ mision.titulo }}</h2>
+                        <br>
+                        <a class="btn btn-outline-primary btn-sm fw-bolder" href="{% url 'mision:mision_detalle' mision.id %}">Ver Misión</a>
+                    </div>
+                    <img class="img-fluid" src={{ mision.imagen }} alt="..." />
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+    <a class="btn btn-primary btn-sm" href="{% url 'mision:mision_registrar' %}">Registrar una nueva misión</a>
+
+    <br><br>
+
+    <a class="btn btn-outline-dark btn-sm" href="{% url 'home:home' %}">Volver</a>
+
+{% endblock content_mision %}

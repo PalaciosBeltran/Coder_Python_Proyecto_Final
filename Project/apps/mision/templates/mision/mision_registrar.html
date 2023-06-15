@@ -1,0 +1,21 @@
+{% extends 'mision/list.html' %}
+
+{% block content_titulo %}
+
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Registra una misión</span></h1>
+
+{% endblock content_titulo %}
+
+{% block content_mision %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p class="text-muted">{{ form.as_p }}</p><br>
+        <div class="d-grid gap-3">
+            <button type="submit" class="btn btn-primary btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder">Enviar</button><br>
+        </div>
+    </form>
+
+    <div><br><a class="btn btn-outline-dark btn-sm" href="{% url 'mision:mision_list' %}">Volver</a></div>
+
+{% endblock content_mision %}

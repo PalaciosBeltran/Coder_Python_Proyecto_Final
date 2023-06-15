@@ -1,0 +1,42 @@
+{% extends 'perfil/list.html' %}
+
+{% block content_titulo %}
+
+    {% if perfil.categoria.nombre == 'Superhéroe' %}
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">{{ perfil.alias }}</span></h1>
+    {% else %}
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient2 d-inline">{{ perfil.alias }}</span></h1>
+    {% endif %}
+    
+{% endblock content_titulo %}
+
+{% block content_perfil %}   
+
+    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+        <div class="card-body p-0">
+            <div class="d-flex align-items-center">
+                <div class="p-5">
+                    <h2 class="fw-bolder">{{ perfil.nombre }}</h2>
+                    <a>Origen: {{ perfil.origen }}</a><br>
+                    <a>Realidad: {{ perfil.realidad }}</a><br>
+                    <a>Lugar de Nacimiento: {{ perfil.lugar_nacimiento }}</a><br><br>
+                    <a>{{ perfil.descripcion }}</a>
+                    <br>
+                    <br>
+                    <a class="btn btn-outline-primary btn-sm" href="{% url 'perfil:perfil_actualizar' perfil.id %}">Actualizar</a>
+                    <br>
+                    <br>
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'perfil:perfil_eliminar' perfil.id %}">Eliminar</a>
+                </div>
+                <img class="img-fluid" src={{ perfil.imagen }} alt="..." />
+            </div>
+        </div>
+    </div>
+
+    {% if perfil.categoria.nombre == 'Superhéroe' %}
+        <a class="btn btn-outline-dark btn-sm" href="{% url 'perfil:perfil_list' %}">Volver</a>
+    {% else %}
+        <a class="btn btn-outline-dark btn-sm" href="{% url 'perfil:perfilvillano_list' %}">Volver</a>
+    {% endif %}
+
+{% endblock content_perfil %}

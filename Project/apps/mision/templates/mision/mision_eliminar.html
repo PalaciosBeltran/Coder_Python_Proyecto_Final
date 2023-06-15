@@ -1,0 +1,25 @@
+{% extends 'mision/list.html' %}
+
+{% block title %}
+    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Eliminar Misión</span></h1>
+{% endblock title %}
+
+{% block content_mision %}
+    <div class="d-flex align-items-center">
+        <div class="p-5">
+            <h2 class="fw-bolder">¿Deseas eliminar la misión de "{{ mision.titulo }}"?</h2>
+            <br>
+            <form method="post">
+                {% csrf_token %}
+                <div class="d-grid gap-3">
+                    <button class="btn btn-outline-danger btn-sm fw-bolder" type="submit">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <a class="btn btn-outline-dark btn-sm" href="{% url 'mision:mision_list' %}">Volver</a>
+    
+{% endblock content_mision %}

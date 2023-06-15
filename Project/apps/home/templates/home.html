@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main class="flex-shrink-0">            
+        <!-- Header-->
+        <header class="py-5">
+            <div class="container px-5 pb-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-xxl-5">
+                        <!-- Header text content-->
+                        <div class="text-center text-xxl-start">
+                            <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">S.H.I.E.L.D &middot; Stark Industries &middot; Oscorp</div></div>
+                            <img class="profile-img" src="{% static 'home/assets/main.jpg' %}" alt="..." />
+                            <div><br><br></div>
+                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Iniciativa Vengadores</span></h1>
+                            <p class="text-muted">
+                                ¡Únete a la Iniciativa Vengadores y descubre tu verdadero potencial superhumano!
+                                <br><br>
+                                ¿Tienes habilidades extraordinarias y un espíritu valiente? ¡Es hora de canalizar tus poderes y unirte a la lucha contra el mal! 
+                                <br><br>
+                                La Iniciativa Vengadores está buscando personas como tú, con el deseo de proteger el mundo y derrotar a los villanos que amenazan nuestra existencia. Si estás listo para asumir tu destino y formar parte de algo más grande que tú mismo, no esperes más. Juntos, forjaremos un frente unido para preservar la paz y la justicia en el universo.
+                                <br><br>
+                                Únete a la Iniciativa Vengadores y descubre el héroe que llevas dentro. ¡El mundo necesita tu poder!</p>  
+                            <div><br><br></div>                              
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">                                    
+                                <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="{% url 'perfil:perfilcategoria_list' %}">Perfiles</a>
+                                <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'mision:mision_list' %}">Misiones</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About Section-->
+        <section class="bg-light py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-xxl-4">
+                        <div class="text-center my-5">
+                            <p class="text-muted">"...La idea era buscar y reunir a un grupo de personas excepcionales y tratar de convertirlas en algo más. Ver si podían unirse cuando necesitáramos que libraran las batallas que no podríamos ganar." ―Nicholas Fury</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock content %}
