@@ -19,11 +19,15 @@
                         {% if perfilcategoria.nombre == 'Superhéroe' %}
                             <a class="btn btn-primary btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_list' %}">Ver Perfiles</a>
                             <h2></h2>
-                            <a class="btn btn-primary btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_registrar' %}">Registrar Héroe</a>
+                            {% if user.is_staff %}
+                                <a class="btn btn-primary btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_registrar' %}">Registrar Héroe</a>
+                            {% endif %}
                         {% else %}
                             <a class="btn btn-danger btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfilvillano_list' %}">Ver Perfiles</a>
                             <h2></h2>
-                            <a class="btn btn-danger btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_reportar' %}">Reportar Villano</a>
+                            {% if user.is_staff %}
+                                <a class="btn btn-danger btn-sm px-4 py-2 me-sm-3 fs-7 fw-bolder" href="{% url 'perfil:perfil_reportar' %}">Reportar Villano</a>
+                            {% endif %}
                         {% endif %}
                         </div>
                     <img class="img-fluid" src={{ perfilcategoria.imagen }} alt="..." />

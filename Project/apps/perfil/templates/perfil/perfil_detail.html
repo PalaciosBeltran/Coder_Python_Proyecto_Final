@@ -23,10 +23,12 @@
                     <a>{{ perfil.descripcion }}</a>
                     <br>
                     <br>
+                    {% if user.is_staff %}
                     <a class="btn btn-outline-primary btn-sm" href="{% url 'perfil:perfil_actualizar' perfil.id %}">Actualizar</a>
                     <br>
                     <br>
                     <a class="btn btn-outline-danger btn-sm" href="{% url 'perfil:perfil_eliminar' perfil.id %}">Eliminar</a>
+                    {% endif %}
                 </div>
                 <img class="img-fluid" src={{ perfil.imagen }} alt="..." />
             </div>

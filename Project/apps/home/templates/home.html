@@ -12,6 +12,9 @@
                     <div class="col-xxl-5">
                         <!-- Header text content-->
                         <div class="text-center text-xxl-start">
+                            {% if user.is_authenticated %}
+                                <p>{{ mensaje }}</p>
+                            {% endif %}
                             <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">S.H.I.E.L.D &middot; Stark Industries &middot; Oscorp</div></div>
                             <img class="profile-img" src="{% static 'home/assets/main.jpg' %}" alt="..." />
                             <div><br><br></div>
@@ -24,11 +27,21 @@
                                 La Iniciativa Vengadores está buscando personas como tú, con el deseo de proteger el mundo y derrotar a los villanos que amenazan nuestra existencia. Si estás listo para asumir tu destino y formar parte de algo más grande que tú mismo, no esperes más. Juntos, forjaremos un frente unido para preservar la paz y la justicia en el universo.
                                 <br><br>
                                 Únete a la Iniciativa Vengadores y descubre el héroe que llevas dentro. ¡El mundo necesita tu poder!</p>  
-                            <div><br><br></div>                              
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">                                    
-                                <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="{% url 'perfil:perfilcategoria_list' %}">Perfiles</a>
-                                <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'mision:mision_list' %}">Misiones</a>
-                            </div>
+                            <div><br><br></div> 
+                            {% if user.is_authenticated %}                             
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">                                    
+                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="{% url 'perfil:perfilcategoria_list' %}">Perfiles</a>
+                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'mision:mision_list' %}">Misiones</a> 
+                                </div>
+                                {% if user.is_staff %}
+                                <br>
+                                <br>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">  
+                                                                
+                                    <a class="btn btn-dark btn-lg px-3 py-2 me-sm-3 fs-6 fw-bolder" href="{% url 'admin:index' %}">Administrar Site</a>                                
+                                </div>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
