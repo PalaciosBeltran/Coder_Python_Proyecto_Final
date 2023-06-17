@@ -25,10 +25,12 @@
 
     {% endfor %}
 
-    <a class="btn btn-primary btn-sm" href="{% url 'mision:mision_registrar' %}">Registrar una nueva misión</a>
+    {% if user.is_staff %}
+        <a class="btn btn-primary btn-sm" href="{% url 'mision:mision_registrar' %}">Registrar una nueva misión</a>
 
-    <br><br>
-
+        <br><br>
+    {% endif %}
+    
     <a class="btn btn-outline-dark btn-sm" href="{% url 'home:home' %}">Volver</a>
 
 {% endblock content_mision %}
